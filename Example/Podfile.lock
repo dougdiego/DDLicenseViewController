@@ -1,0 +1,14 @@
+PODS:
+  - DDLicenseViewController (0.1.0)
+
+DEPENDENCIES:
+  - DDLicenseViewController (from `../`)
+
+EXTERNAL SOURCES:
+  DDLicenseViewController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DDLicenseViewController: 1e0f1860dddf660f559714e00090ae2f6ac36d10
+
+COCOAPODS: 0.35.0
