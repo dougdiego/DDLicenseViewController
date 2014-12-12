@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
   s.name             = "DDLicenseViewController"
   s.version          = "0.1.0"
-  s.summary          = "A short description of DDLicenseViewController."
+  s.summary          = "A library to list and show licenses uses in your app."
   s.description      = <<-DESC
                        Every responsible app developer should list out the licenses used in their app.  This library makes it easy to display those licenses. 
                        DESC
