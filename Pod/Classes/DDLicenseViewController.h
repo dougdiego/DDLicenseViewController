@@ -32,9 +32,14 @@
 @property (nonatomic,strong) DDLicense * license;
 
 /**
- The font to show the license in.  This only works for isHTML = NO.  
+ The font to show the license in.  This only works for isHTML = NO.
  If you use isHTML = YES, then set the font in the HTML.
  */
 @property (nonatomic, strong) UIFont* licenseFont;
+
+/**
+ Optional: The font color to use for the license
+ */
+@property (nonatomic, strong) UIColor* licenseFontColor;
 
 @end

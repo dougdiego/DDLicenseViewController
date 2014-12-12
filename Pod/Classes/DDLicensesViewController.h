@@ -22,21 +22,32 @@
 // SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "DDLicense.h"
 
 @interface DDLicensesViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray* licenses;
 
 /**
- Optional: The font to use for the lis of licenes
+ Optional: The font to use for the list of licenes
  */
- @property (nonatomic, strong) UIFont* licenseListFont;
+@property (nonatomic, strong) UIFont* licenseListFont;
 
 /**
- Optional: license list fontThe font to show the license in.  
- This only works for isHTML = NO. If you use isHTML = YES, 
+ Optional: The font color to use for the list of license
+ */
+@property (nonatomic, strong) UIColor* licenseListFontColor;
+
+/**
+ Optional: license list fontThe font to show the license in.
+ This only works for isHTML = NO. If you use isHTML = YES,
  then set the font in the HTML.
  */
 @property (nonatomic, strong) UIFont* licenseFont;
+
+/**
+ Optional: The font color to use for the license
+ */
+@property (nonatomic, strong) UIColor* licenseFontColor;
 
 @end

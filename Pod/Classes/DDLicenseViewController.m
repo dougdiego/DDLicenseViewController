@@ -69,6 +69,10 @@
             _scrollTextLabel.font = _licenseFont;
         }
         
+        if(_licenseFontColor){
+            _scrollTextLabel.textColor = _licenseFontColor;
+        }
+        
         // add long text to label
         _scrollTextLabel.text = _license.licenseText;
         
@@ -113,6 +117,17 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     NSLog(@"didFailLoadWithError error: %@", error);
     
+}
+
+-(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    
+    // Open links in Safari
+    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

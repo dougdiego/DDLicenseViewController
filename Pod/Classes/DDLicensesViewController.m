@@ -61,7 +61,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     DDLicense * license = [_licenses objectAtIndex:indexPath.row];
@@ -70,6 +70,10 @@
     if(_licenseListFont){
         cell.textLabel.font = _licenseListFont;
     }
+    if(_licenseListFontColor){
+        cell.textLabel.textColor = _licenseListFontColor;
+    }
+    
     
     return cell;
 }
