@@ -60,6 +60,9 @@
      // Optional: license font
     vc.licenseFont = [UIFont fontWithName:@"Courier" size:17];
     
+    // Optional: Back button
+    vc.backButtonImage = [UIImage imageNamed:@"navbar_back"];
+    
     // Add close button to navigation bar
     vc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
                                                                                         target:self

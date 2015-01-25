@@ -50,6 +50,13 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    if(_backButtonImage){
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_back"]
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(backButtonPressed:)];
+    }
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -128,6 +135,15 @@
     }
     
     return YES;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Actions
+
+-(void) backButtonPressed:  (id) sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

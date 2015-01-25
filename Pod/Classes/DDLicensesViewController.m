@@ -40,6 +40,16 @@
     // Remove empty cell separators
     self.tableView.tableFooterView = [UIView new];
     
+    //NSLog(@"vc.navigationItem.leftBarButtonItem: %@ count: %d", self.navigationItem.leftBarButtonItem,self.navigationController.childViewControllers.count );
+    
+    
+    if(_backButtonImage && !self.navigationItem.leftBarButtonItem && self.navigationController.childViewControllers.count > 1){
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_back"]
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(backButtonPressed:)];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,8 +101,23 @@
         _licensePageViewController.licenseFont = _licenseFont;
     }
     _licensePageViewController.license = license;
+    
+    if(_backButtonImage){
+        _licensePageViewController.backButtonImage = _backButtonImage;
+    }
+    
     [self.navigationController pushViewController:_licensePageViewController animated:YES];
     
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Actions
+
+-(void) backButtonPressed:  (id) sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end

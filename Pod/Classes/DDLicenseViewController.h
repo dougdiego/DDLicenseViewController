@@ -42,4 +42,9 @@
  */
 @property (nonatomic, strong) UIColor* licenseFontColor;
 
+/**
+ Optional: Image for back button
+ */
+@property (nonatomic, strong) UIImage* backButtonImage;
+
 @end
