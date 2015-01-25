@@ -13,6 +13,8 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+* iOS 7.0 or later
+* [CocoaPods](http://cocoapods.org)
 
 ## Installation
 
@@ -22,6 +24,7 @@ it, simply add the following line to your Podfile:
     pod "DDLicenseViewController"
 	
 ## Usage
+Objective-C
 ```objective-c
 
     // Load Licenses1 from a plist
@@ -49,7 +52,25 @@ it, simply add the following line to your Podfile:
     [self presentViewController:nvc animated:YES completion:nil];	
 	
 ```
-
+Swift
+```swift
+         // Load Licenses1 from a plist
+        let path: NSString = NSBundle.mainBundle().pathForResource("Licenses", ofType: "plist")!;
+        let licenses = NSArray(contentsOfFile: path);
+        let ddLicenses: NSArray = DDLicense.licenseArrayFromDictionaryArray(licenses);
+        
+        var vc: DDLicensesViewController = DDLicensesViewController()
+        vc.title = "Licenses";
+        vc.licenses = ddLicenses;
+        
+        // Optional: license list font
+        vc.licenseListFont = UIFont(name: "HelveticaNeue-Light", size: 17);
+        
+        // Optional: license font
+        vc.licenseFont = UIFont(name: "Courier", size: 17);
+        
+        self.navigationController?.pushViewController(vc, animated: true);
+```
 ## Author
 
 Doug Diego
