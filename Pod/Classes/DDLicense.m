@@ -32,6 +32,7 @@
         self.name           = [dictionary objectForKey:@"name"];
         self.licenseText    = [dictionary objectForKey:@"licenseText"];
         self.isHTML         = [[dictionary objectForKey:@"isHTML"] boolValue];
+        self.licenseUrl     = [dictionary objectForKey:@"licenseUrl"];
     }
     return self;
 }

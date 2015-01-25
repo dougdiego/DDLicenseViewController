@@ -37,6 +37,11 @@
 @property (nonatomic, copy) NSString *licenseText;
 
 /**
+ License URL
+ */
+@property (nonatomic, copy) NSString *licenseUrl;
+
+/**
  Whether to display the licenseText as HTML.  If isHTML = YES, then
  licenseText will be displayed in an UIWebView.  If isHTML = NO, then
  licenseText will be displayed in a UILable in a UIScrollView.

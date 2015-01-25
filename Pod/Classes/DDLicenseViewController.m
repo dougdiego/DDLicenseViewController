@@ -57,6 +57,20 @@
                                                                                 target:self
                                                                                 action:@selector(backButtonPressed:)];
     }
+
+}
+
+-(void) didPressShareButton: (id) sender {
+
+    
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[_license.name, _license.licenseUrl]
+                                      applicationActivities:nil];
+    [self.navigationController presentViewController:activityViewController
+                                       animated:YES
+                                     completion:^{
+                                         // ...
+                                     }];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -65,6 +79,13 @@
     _webView.frame =  (CGRect){0,0,self.view.frame.size.width, self.view.frame.size.height};
     _scrollView.frame =  (CGRect){0,0,self.view.frame.size.width, self.view.frame.size.height};
     _scrollTextLabel.frame =  (CGRect){0,0,self.view.frame.size.width, self.view.frame.size.height};
+   
+    NSLog(@"_license.licenseUrl: %@", _license.licenseUrl );
+    if( [_license.licenseUrl isKindOfClass:[NSString class]] && [(NSString*)_license.licenseUrl length] > 0 ){
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(didPressShareButton:)];
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
     
     if( _license.isHTML){
         [self.webView loadHTMLString:_license.licenseText baseURL:nil];
