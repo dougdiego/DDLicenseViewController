@@ -47,4 +47,9 @@
  */
 @property (nonatomic, strong) UIImage* backButtonImage;
 
+/**
+ Optional: Open Links in Safari, defaults to true
+ */
+@property (nonatomic) BOOL openLinksInSafari;
+
 @end

@@ -33,6 +33,11 @@
 
 @implementation DDLicenseViewController
 
+- (id) init {
+    _openLinksInSafari = true;
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -52,7 +57,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     if(_backButtonImage){
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navbar_back"]
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:_backButtonImage
                                                                                  style:UIBarButtonItemStylePlain
                                                                                 target:self
                                                                                 action:@selector(backButtonPressed:)];
@@ -80,7 +85,7 @@
     _scrollView.frame =  (CGRect){0,0,self.view.frame.size.width, self.view.frame.size.height};
     _scrollTextLabel.frame =  (CGRect){0,0,self.view.frame.size.width, self.view.frame.size.height};
    
-    NSLog(@"_license.licenseUrl: %@", _license.licenseUrl );
+    //NSLog(@"_license.licenseUrl: %@", _license.licenseUrl );
     if( [_license.licenseUrl isKindOfClass:[NSString class]] && [(NSString*)_license.licenseUrl length] > 0 ){
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(didPressShareButton:)];
     } else {
@@ -149,10 +154,12 @@
 
 -(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
     
-    // Open links in Safari
-    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
-        [[UIApplication sharedApplication] openURL:[inRequest URL]];
-        return NO;
+    if (_openLinksInSafari){
+        // Open links in Safari
+        if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+            [[UIApplication sharedApplication] openURL:[inRequest URL]];
+            return NO;
+        }
     }
     
     return YES;

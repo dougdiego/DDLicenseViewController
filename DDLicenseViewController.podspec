@@ -9,13 +9,13 @@
 
 Pod::Spec.new do |s|
   s.name             = "DDLicenseViewController"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "A library to list and show licenses uses in your app."
   s.description      = <<-DESC
                        Every responsible app developer should list out the licenses used in their app.  This library makes it easy to display those licenses. 
                        DESC
   s.homepage         = "https://github.com/dougdiego/DDLicenseViewController"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.screenshots      = "https://raw.githubusercontent.com/dougdiego/DDLicenseViewController/master/Assets/DDLicenseViewControllerDemo.gif"
   s.license          = 'MIT'
   s.author           = { "dougdiego" => "dougdiego@gmail.com" }
   s.source           = { :git => "https://github.com/dougdiego/DDLicenseViewController.git", :tag => s.version.to_s }
@@ -29,7 +29,4 @@ Pod::Spec.new do |s|
     'DDLicenseViewController' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
